@@ -16,7 +16,7 @@ const App = () => {
 				<GlobalStyles />
 				<div className="App">
 					<button onClick={themeToggler}>Switch Theme</button>
-					<h1>Welcome to Anarrativ</h1>
+					<h1>Welcome to Narrasion</h1>
 					<p>
 						A sass platform to create and express your narrative in the form of
 						web stories. Add videos, pictures, links and share your awesome
