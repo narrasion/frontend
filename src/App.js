@@ -20,14 +20,16 @@ const App = () => {
 	};
 
 	return (
-		<Provider store={store}>
-			<PersistGate loading={null} persistor={persistor}>
-				<HashRouter>
-					<ThemeProvider theme={THEME_CONSTANT[theme]}>
-						<>
-							<GlobalStyles />
+		<ThemeProvider theme={THEME_CONSTANT[theme]}>
+			<>
+				<GlobalStyles />
+				<Provider store={store}>
+					<PersistGate loading={null} persistor={persistor}>
+						<HashRouter>
 							<div className="App">
-								<button onClick={themeToggler}>Switch Theme</button>
+								<button onClick={themeToggler}>
+									{theme === 'light' ? 'light' : 'dark'}
+								</button>
 								<h1>Welcome to Narrasion</h1>
 								<p>
 									A sass platform to create and express your narrative in the
@@ -35,11 +37,11 @@ const App = () => {
 									your awesome story with the world.
 								</p>
 							</div>
-						</>
-					</ThemeProvider>
-				</HashRouter>
-			</PersistGate>
-		</Provider>
+						</HashRouter>
+					</PersistGate>
+				</Provider>
+			</>
+		</ThemeProvider>
 	);
 };
 
