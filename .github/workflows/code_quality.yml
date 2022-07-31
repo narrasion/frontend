@@ -1,0 +1,36 @@
+# Workflow to Check the code for formatting issues with Prettier: https://prettier.io/
+
+name: Code quality
+
+on: [pull_request]
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['14']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Fetch main branch
+        run: git fetch origin main:main
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm install --immutable --immutable-cache
+        env:
+          CI: true
+
+      - name: Evaluate code formatting
+        run: npm run format:check
