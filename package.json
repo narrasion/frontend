@@ -10,6 +10,7 @@
 		"coverage": "jest --coverage",
 		"lint": "eslint . --fix --max-warnings=0",
 		"format": "prettier . --write",
+		"format:check": "prettier . --check",
 		"prepare": "husky install",
 		"deploy": "vercel --prod"
 	},
