@@ -15,9 +15,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
-      - name: Fetch master branch
-        run: git fetch origin master:master
+      - name: Fetch main branch
+        run: git fetch origin main:main
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
