@@ -1,13 +1,13 @@
 const THEME_CONSTANT = {
 	light: {
-		body: '#FFF',
-		text: '#363537',
+		body: '#FFFFFF',
+		text: '#232326',
 		toggleBorder: '#FFF',
 		background: '#363537',
 	},
 	dark: {
-		body: '#363537',
-		text: '#FAFAFA',
+		body: '#000000',
+		text: '#FFFFFF',
 		toggleBorder: '#6B8096',
 		background: '#999',
 	},
